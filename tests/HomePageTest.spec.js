@@ -16,15 +16,25 @@ test('Home Page', async ({ page }) => {
   await page.fill('#tempPassId', 'Admin123@', { force: true });
   await page.click('#loginId', { force: true });
 
-  console.log('Login successful. ');
+  console.log('Login successful.  ');
 
-  const superAdmin = page.locator("tr#row_8 td", { hasText: "Super Admin" });
-  await superAdmin.waitFor({ state: 'visible' });
-  await superAdmin.click();
-  console.log('Clicked on Super Admin role');
+  //const superAdmin = page.locator("tr#row_8 td", { hasText: "Super Admin" });
+  //await superAdmin.waitFor({ state: 'visible' });
+  //await superAdmin.click();
+  //console.log('Clicked on Super Admin role');
 
-  //await page.pause();
+  const loader = page.locator("tr#row_0 td", { hasText: "Loader" });
+  await loader.waitFor({ state: 'visible' });
+  await loader.click();
+  console.log('Clicked on Loader role');
+
   
+  //Clicked on Upload menu
+
+   await page.waitForSelector('#leftMenu3');
+  await page.click('#leftMenu3');
+  
+await page.pause();
   await page.click('#logoutLink');
   console.log('Clicked on logout button');
   await page.click('#logoutConfirm');

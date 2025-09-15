@@ -30,9 +30,11 @@ test('Home Page', async ({ page }) => {
 
   
   //Clicked on Upload menu
+  
+await page.click('text=Uploads'); 
+await page.waitForSelector('#leftMenu3', { state: 'visible' });
+await page.click('#leftMenu3');
 
-   await page.waitForSelector('#leftMenu3');
-  await page.click('#leftMenu3');
   
 await page.pause();
   await page.click('#logoutLink');
